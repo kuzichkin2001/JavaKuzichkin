@@ -1,0 +1,5 @@
+Mig-34 Pupkin 0 65
+Mig-35 Pupkin 1 85
+Mig-36 Pupkidze 2 115
+Mig-37 Pupkin 0 65
+Mig-38 Pupkidze 1 75
