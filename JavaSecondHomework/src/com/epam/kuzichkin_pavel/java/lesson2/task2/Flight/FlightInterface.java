@@ -13,4 +13,6 @@ public interface FlightInterface {
     Integer getFlightDistance();
 
     AeroplaneInterface getAttachedAeroplane();
+
+    void setAttachedAeroplane(Aeroplane aeroplane);
 }

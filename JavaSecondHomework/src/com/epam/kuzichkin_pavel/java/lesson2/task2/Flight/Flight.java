@@ -79,15 +79,14 @@ public class Flight implements FlightInterface {
         return null;
     }
 
-    private void setAttachedAeroplane(Aeroplane aeroplane) {
+    public void setAttachedAeroplane(Aeroplane aeroplane) {
         attachedAeroplane = aeroplane;
     }
 
     @Override
     public String toString() {
         return "Flight{" +
-                "formatter=" + formatter +
-                ", start=" + start +
+                "start=" + start +
                 ", flightTime=" + flightTime +
                 ", flightDistance=" + flightDistance +
                 ", attachedAeroplane=" + attachedAeroplane +

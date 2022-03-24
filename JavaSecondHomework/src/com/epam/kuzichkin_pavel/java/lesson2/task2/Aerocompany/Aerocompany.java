@@ -136,10 +136,8 @@ public class Aerocompany implements AerocompanyInterface {
     }
 
     private Boolean filterAirplanes(AeroplaneInterface aeroplane, SearchParamsInterface searchParams) {
-        return aeroplane.getName().contains(searchParams.getName()) &&
-               aeroplane.getAeroparkName().contains(searchParams.getAeroparkName()) ||
-               aeroplane.getPassengersCapacity().equals(searchParams.getPassengersCapacity()) ||
-               aeroplane.getAeroplaneType().equals(searchParams.getAeroplaneType());
+        return aeroplane.getAeroplaneType().equals(searchParams.getAeroplaneType()) &&
+                aeroplane.getPassengersCapacity() < searchParams.getPassengersCapacity();
     }
 
     @Override
