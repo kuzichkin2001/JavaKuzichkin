@@ -2,6 +2,7 @@ package com.epam.kuzichkin_pavel.java.lesson2.task2;
 
 import com.epam.kuzichkin_pavel.java.lesson2.task2.Aerocompany.Aerocompany;
 import com.epam.kuzichkin_pavel.java.lesson2.task2.Aerocompany.AerocompanyInterface;
+import com.epam.kuzichkin_pavel.java.lesson2.task2.AerocompanyExceptions.FlightException;
 import com.epam.kuzichkin_pavel.java.lesson2.task2.Aeroplane.Aeroplane;
 import com.epam.kuzichkin_pavel.java.lesson2.task2.Aeroplane.AeroplaneInterface;
 import com.epam.kuzichkin_pavel.java.lesson2.task2.Aeroplane.AeroplaneType;
@@ -59,6 +60,14 @@ public class Application {
         }
         catch (IOException exception) {
             System.out.println(exception.getMessage());
+        }
+
+        Flight test1, test2, test3, test4, test5;
+        try {
+            test1 = new Flight(LocalDate.now(), 2, -20);
+        }
+        catch (FlightException e) {
+            System.out.println(e.getMessage());
         }
 
         availableFlights[2].setAttachedAeroplane(new Aeroplane(

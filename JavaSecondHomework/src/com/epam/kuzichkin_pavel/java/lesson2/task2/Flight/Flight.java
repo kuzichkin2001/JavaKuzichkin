@@ -1,5 +1,6 @@
 package com.epam.kuzichkin_pavel.java.lesson2.task2.Flight;
 
+import com.epam.kuzichkin_pavel.java.lesson2.task2.AerocompanyExceptions.FlightException;
 import com.epam.kuzichkin_pavel.java.lesson2.task2.Aeroplane.Aeroplane;
 
 import java.time.LocalDate;
@@ -33,10 +34,15 @@ public class Flight implements FlightInterface {
         attachedAeroplane = new Aeroplane();
     }
 
-    public Flight(LocalDate flightStart, Integer flightTime, Integer flightDistance) {
+    public Flight(LocalDate flightStart, Integer flightTime, Integer flightDistance) throws FlightException {
         start = flightStart;
-        this.flightTime = flightTime;
-        this.flightDistance = flightDistance;
+        if (flightTime < 0 || flightDistance < 0) {
+            throw new FlightException("Negative number flight time or flight distance is impossible");
+        }
+        else {
+            this.flightTime = flightTime;
+            this.flightDistance = flightDistance;
+        }
         attachedAeroplane = new Aeroplane();
     }
 
