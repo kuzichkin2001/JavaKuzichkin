@@ -3,10 +3,11 @@ package com.epam.kuzichkin_pavel.java.lesson2.task2.Flight;
 import com.epam.kuzichkin_pavel.java.lesson2.task2.AerocompanyExceptions.FlightException;
 import com.epam.kuzichkin_pavel.java.lesson2.task2.Aeroplane.Aeroplane;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class Flight implements FlightInterface {
+public class Flight implements FlightInterface, Serializable {
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yy");
     private LocalDate start;
     private Integer flightTime;

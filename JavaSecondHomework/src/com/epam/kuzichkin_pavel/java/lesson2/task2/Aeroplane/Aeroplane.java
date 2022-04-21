@@ -1,6 +1,8 @@
 package com.epam.kuzichkin_pavel.java.lesson2.task2.Aeroplane;
 
-public class Aeroplane implements AeroplaneInterface {
+import java.io.Serializable;
+
+public class Aeroplane implements AeroplaneInterface, Serializable {
     private String name;
     private String aeroparkName;
     private AeroplaneType aeroplaneType;

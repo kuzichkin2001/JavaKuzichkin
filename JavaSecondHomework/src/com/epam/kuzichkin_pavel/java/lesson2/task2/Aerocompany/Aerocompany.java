@@ -7,10 +7,11 @@ import com.epam.kuzichkin_pavel.java.lesson2.task2.Flight.FlightInterface;
 import com.epam.kuzichkin_pavel.java.lesson2.task2.SearchParams;
 import com.epam.kuzichkin_pavel.java.lesson2.task2.SearchParamsInterface;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
-public class Aerocompany implements AerocompanyInterface {
+public class Aerocompany implements AerocompanyInterface, Serializable {
     private String name;
     private Integer aeroplanesCapacity;
     private Integer currentAeroplanesCount;
@@ -147,5 +148,14 @@ public class Aerocompany implements AerocompanyInterface {
                      .toList();
 
         return result.toArray(new AeroplaneInterface[result.size()]);
+    }
+
+    @Override
+    public String toString() {
+        return "Aerocompany{" +
+                "name='" + name + '\'' +
+                ", aeroplanesCapacity=" + aeroplanesCapacity +
+                ", currentAeroplanesCount=" + currentAeroplanesCount +
+                '}';
     }
 }
