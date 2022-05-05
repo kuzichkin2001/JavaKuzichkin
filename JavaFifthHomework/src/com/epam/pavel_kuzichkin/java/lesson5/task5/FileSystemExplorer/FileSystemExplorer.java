@@ -29,8 +29,6 @@ public class FileSystemExplorer implements FileSystemExplorable {
     }
 
     public void executeExplorer(String path, Integer functionNumber) throws IOException {
-        Scanner scanner = new Scanner(System.in);
-
         try {
             initialize(path);
 
@@ -71,7 +69,7 @@ public class FileSystemExplorer implements FileSystemExplorable {
 
     // Function #1
     private void getFileWithMaximumS() throws IOException {
-        ArrayList<String> fileNames = new ArrayList();
+        ArrayList<String> fileNames = new ArrayList<>();
 
         for (int i = 0; i < filesInFolder.size(); ++i) {
             File filepath = (File) filesInFolder.get(i);

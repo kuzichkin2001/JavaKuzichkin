@@ -14,8 +14,8 @@ public class Main {
 
         int maxNegativeIdx = 0;
         int minPositiveIdx = 0;
-        int maxNegative = (int)-1e4;
-        int minPositive = (int)1e4;
+        int maxNegative = (int)Integer.MIN_VALUE;
+        int minPositive = (int)Integer.MAX_VALUE;
 
         System.out.println("Initial array:");
         for (int i = 0; i < arr.length; ++i) {
@@ -53,7 +53,7 @@ public class Main {
         String operation = scan.next();
 
         if (operation.length() > 1) {
-            throw new Exception("You must only one character operation.");
+            throw new Exception("You must use only one character operation.");
         }
 
         return operation;

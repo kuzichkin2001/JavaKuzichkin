@@ -9,6 +9,7 @@ import com.epam.kuzichkin_pavel.java.lesson2.task2.SearchParamsInterface;
 
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class Aerocompany implements AerocompanyInterface, Serializable {
@@ -121,19 +122,20 @@ public class Aerocompany implements AerocompanyInterface, Serializable {
     * @return {void}
     * */
     public void sortAllFlights() {
+        Arrays.sort(this.availableFlights, Comparator.comparing(FlightInterface::getFlightDistance));
         int length = this.availableFlights.length;
 
-        for (int i = 1; i < length; ++i) {
-            int j = i - 1;
-            Flight arg = (Flight)this.availableFlights[i];
-
-            while (j >= 0 && this.availableFlights[j].getFlightDistance() > arg.getFlightDistance()) {
-                this.availableFlights[j + 1] = this.availableFlights[j];
-                j--;
-            }
-
-            this.availableFlights[j + 1] = arg;
-        }
+//        for (int i = 1; i < length; ++i) {
+//            int j = i - 1;
+//            Flight arg = (Flight)this.availableFlights[i];
+//
+//            while (j >= 0 && this.availableFlights[j].getFlightDistance() > arg.getFlightDistance()) {
+//                this.availableFlights[j + 1] = this.availableFlights[j];
+//                j--;
+//            }
+//
+//            this.availableFlights[j + 1] = arg;
+//        }
     }
 
     private Boolean filterAirplanes(AeroplaneInterface aeroplane, SearchParamsInterface searchParams) {
@@ -143,11 +145,10 @@ public class Aerocompany implements AerocompanyInterface, Serializable {
 
     @Override
     public AeroplaneInterface[] searchAeroplanesWithParams(SearchParamsInterface searchParams) {
-        List<AeroplaneInterface> result = Arrays.stream(this.availableAeroplanes)
-                     .filter(aeroplane -> filterAirplanes(aeroplane, searchParams))
-                     .toList();
-
-        return result.toArray(new AeroplaneInterface[result.size()]);
+        return Arrays.stream(this.availableAeroplanes)
+                .filter(aeroplane -> aeroplane.getAeroplaneType().equals(searchParams.getAeroplaneType()))
+                .filter(aeroplane -> aeroplane.getPassengersCapacity() < searchParams.getPassengersCapacity())
+                .toArray(AeroplaneInterface[]::new);
     }
 
     @Override

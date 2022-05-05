@@ -113,104 +113,104 @@ public class Application {
 
     // Авиакомпания
     public static void main(String[] args) throws Exception {
-//        AeroplaneInterface[] aeroplanes = new Aeroplane[5];
-//
-//        try (BufferedReader buffReader = new BufferedReader(new FileReader("C:\\Users\\Павел\\IdeaProjects\\JavaProgrammingKuzichkin\\JavaSecondHomework\\src\\com\\epam\\kuzichkin_pavel\\java\\lesson2\\task2\\input.txt"))) {
-//            String line;
-//            for (int i = 0; (line = buffReader.readLine()) != null; ++i) {
-//                String[] params = line.split("\s");
-//                aeroplanes[i] = new Aeroplane(
-//                    params[0],
-//                    params[1],
-//                    AeroplaneType.values()[Integer.parseInt(params[2])],
-//                    Integer.parseInt(params[3])
-//                );
-//            }
-//        }
-//        catch (IOException exception) {
-//            System.out.println(exception.getMessage());
-//        }
-//
-//        AerocompanyInterface aerocompany = new Aerocompany(
-//            "Aeroflot",
-//            40,
-//            aeroplanes.length,
-//            null,
-//            aeroplanes
-//        );
-//
-//        FlightInterface[] availableFlights = new FlightInterface[3];
-//        try (BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\Павел\\IdeaProjects\\JavaProgrammingKuzichkin\\JavaSecondHomework\\src\\com\\epam\\kuzichkin_pavel\\java\\lesson2\\task2\\flights.txt"))) {
-//            String line;
-//            for (int i = 0; (line = reader.readLine()) != null; ++i) {
-//                String[] params = line.split("\s");
-//
-//                availableFlights[i] = new Flight(
-//                    LocalDate.now(),
-//                    Integer.parseInt(params[0]),
-//                    Integer.parseInt(params[1]),
-//                    null
-//                );
-//            }
-//        }
-//        catch (IOException exception) {
-//            System.out.println(exception.getMessage());
-//        }
-//
-//        Flight test1, test2, test3, test4, test5;
-//        try {
-//            test1 = new Flight(LocalDate.now(), 2, -20);
-//        }
-//        catch (FlightException e) {
-//            System.out.println(e.getMessage());
-//        }
-//
-//        availableFlights[2].setAttachedAeroplane(new Aeroplane(
-//            "Vitaz'",
-//            "Simpupkidze",
-//            AeroplaneType.HEAVY,
-//            60
-//        ));
-//
-//        ((Aerocompany)aerocompany).setAvailableFlights(availableFlights);
-//
-//
-//        /* Filtering the Aeroplanes array */
-//        SearchParamsInterface searchParams = new SearchParams();
-//
-//        searchParams.setAeroplaneType(AeroplaneType.MEDIUM);
-//        searchParams.setPassengersCapacity(90);
-//
-//        AeroplaneInterface[] searchResult = aerocompany.searchAeroplanesWithParams(searchParams);
-//
-//        for (AeroplaneInterface aeroplane : searchResult) {
-//            System.out.println(aeroplane);
-//        }
-//
-//
-//        /* Sorting the array of all Aeroplanes */
-//        for (FlightInterface flight : aerocompany.getAvailableFlights()) {
-//            System.out.println(flight);
-//        }
-//
-//
-//        System.out.println("\n=================================================\n");
-//
-//        ((Aerocompany) aerocompany).sortAllFlights();
-//
-//        for (FlightInterface flight : aerocompany.getAvailableFlights()) {
-//            System.out.println(flight);
-//        }
+        AeroplaneInterface[] aeroplanes = new Aeroplane[5];
+
+        try (BufferedReader buffReader = new BufferedReader(new FileReader("C:\\Users\\kuzic\\Desktop\\java\\JavaSecondHomework\\src\\com\\epam\\kuzichkin_pavel\\java\\lesson2\\task2\\input.txt"))) {
+            String line;
+            for (int i = 0; (line = buffReader.readLine()) != null; ++i) {
+                String[] params = line.split("\s");
+                aeroplanes[i] = new Aeroplane(
+                    params[0],
+                    params[1],
+                    AeroplaneType.values()[Integer.parseInt(params[2])],
+                    Integer.parseInt(params[3])
+                );
+            }
+        }
+        catch (IOException exception) {
+            System.out.println(exception.getMessage());
+        }
+
+        AerocompanyInterface aerocompany = new Aerocompany(
+            "Aeroflot",
+            40,
+            aeroplanes.length,
+            null,
+            aeroplanes
+        );
+
+        FlightInterface[] availableFlights = new FlightInterface[3];
+        try (BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\kuzic\\Desktop\\java\\JavaSecondHomework\\src\\com\\epam\\kuzichkin_pavel\\java\\lesson2\\task2\\flights.txt"))) {
+            String line;
+            for (int i = 0; (line = reader.readLine()) != null; ++i) {
+                String[] params = line.split("\s");
+
+                availableFlights[i] = new Flight(
+                    LocalDate.now(),
+                    Integer.parseInt(params[0]),
+                    Integer.parseInt(params[1]),
+                    null
+                );
+            }
+        }
+        catch (IOException exception) {
+            System.out.println(exception.getMessage());
+        }
+
+        Flight test1, test2, test3, test4, test5;
+        try {
+            test1 = new Flight(LocalDate.now(), 2, -20);
+        }
+        catch (FlightException e) {
+            System.out.println(e.getMessage());
+        }
+
+        availableFlights[2].setAttachedAeroplane(new Aeroplane(
+            "Vitaz'",
+            "Simpupkidze",
+            AeroplaneType.HEAVY,
+            60
+        ));
+
+        ((Aerocompany)aerocompany).setAvailableFlights(availableFlights);
+
+
+        /* Filtering the Aeroplanes array */
+        SearchParamsInterface searchParams = new SearchParams();
+
+        searchParams.setAeroplaneType(AeroplaneType.MEDIUM);
+        searchParams.setPassengersCapacity(90);
+
+        AeroplaneInterface[] searchResult = aerocompany.searchAeroplanesWithParams(searchParams);
+
+        for (AeroplaneInterface aeroplane : searchResult) {
+            System.out.println(aeroplane);
+        }
+
+
+        /* Sorting the array of all Aeroplanes */
+        for (FlightInterface flight : aerocompany.getAvailableFlights()) {
+            System.out.println(flight);
+        }
+
+
+        System.out.println("\n=================================================\n");
+
+        ((Aerocompany) aerocompany).sortAllFlights();
+
+        for (FlightInterface flight : aerocompany.getAvailableFlights()) {
+            System.out.println(flight);
+        }
 
         // #5
 
-        serializeAeroplane();
-        serializeAerocompany();
-
-        Aeroplane catchedAeroplane = deserializeAeroplane();
-        Aerocompany catchedAerocompany = deserializeAerocompany();
-
-        System.out.println(catchedAeroplane);
-        System.out.println(catchedAerocompany);
+//        serializeAeroplane();
+//        serializeAerocompany();
+//
+//        Aeroplane catchedAeroplane = deserializeAeroplane();
+//        Aerocompany catchedAerocompany = deserializeAerocompany();
+//
+//        System.out.println(catchedAeroplane);
+//        System.out.println(catchedAerocompany);
     }
 }
